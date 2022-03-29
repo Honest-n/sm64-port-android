@@ -4,7 +4,7 @@ If you want to compile on Android using [Termux](https://f-droid.org/en/packages
 
 **Install dependencies:**
 ```sh
-pkg install git wget make python getconf zip apksigner clang
+pkg install git wget make python getconf zip apksigner clang binutils
 ```
 
 **Clone the repository:**
@@ -26,15 +26,21 @@ cp /sdcard/path/to/your/baserom.z64 ./baserom.us.z64
 ./getSDL.sh
 ```
 
+**Get khrplatform.h:**
+```sh
+mkdir ~/../usr/include/KHR
+wget https://www.khronos.org/registry/EGL/api/KHR/khrplatform.h -O ~/../usr/include/KHR/khrplatform.h
+```
+
 **Build:**
 ```sh
 # if you have more cores available, you can increase the --jobs parameter
 make --jobs 4
 ```
 
-**Enjoy your apk:**
+**Install  your apk:**
 ```sh
-ls -al build/us_pc/sm64.us.f3dex2e.apk
+xdg-open build/us_pc/sm64.us.f3dex2e.apk
 ```
 
 # Super Mario 64 Port
